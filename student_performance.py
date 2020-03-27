@@ -334,10 +334,10 @@ print(students.info())  # Data cleansing is done. No data missing and all the sa
 def xyz(x,y):
     # Splitting features and target datasets into: train and test
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.35)
-#    print(f"x.shape: (x.shape), y.shape: (y.shape)")
-#    print(f"x_train.shape: {x_train.shape}, y_train.shape: {y_train.shape}")
-#    print(f"x_test.shape: {x_test.shape}, y_test.shape: {y_test.shape}")
-#    return x_train, x_test, y_train, y_test
+    print(f"x.shape: (x.shape), y.shape: (y.shape)")
+    print(f"x_train.shape: {x_train.shape}, y_train.shape: {y_train.shape}")
+    print(f"x_test.shape: {x_test.shape}, y_test.shape: {y_test.shape}")
+    return x_train, x_test, y_train, y_test
     for Model in [LinearRegression, LinearSVR, Ridge, ElasticNet, Lasso, GradientBoostingRegressor]:
         model = Model()
         model.fit(x_train, y_train)
@@ -385,10 +385,7 @@ def plot_func(name, y_test, predicted_values):
    plt.plot([0, 20], [0, 20], '--')
    plt.xlabel('Real Value')
    plt.ylabel('Predicted Value')
-   plt.savefig(name) ###
-#   plt.savefig(f'plots/ML/all_features_predict.png') ###
-#   plt.savefig(f'plots/ML/withoutG2_predict.png')
-#   plt.savefig(f'plots/ML/WithoutG1G2_predict.png')
+   plt.savefig(name) 
    plt.close()
 # Plot training deviance
 test_score = np.zeros((100,), dtype=np.float64)
@@ -406,8 +403,6 @@ def plot_deviance(plot_file_name,y_test,predicted_values,x_test,test_score):
     plt.xlabel('Boosting Iterations')
     plt.ylabel('Deviance')
     plt.savefig(plot_file_name)
-   # plt.savefig(f'plots/ML/WithoutG2_deviance.png')
-    #plt.savefig(f'plots/ML/WithoutG1G2_deviance.png')
     plt.close()
 # Plot feature importance
 def bar_func(plot_name,x):
@@ -585,8 +580,6 @@ print('Classification Report')
 print(classification_report(y_test, predicted_values))
 print('Confusion Matrix')
 print(confusion_matrix(y_test, predicted_values))
-#print('Overall f1-score')
-#print(f1_score(y_test, predicted_values, average="macro"))
 
 # plot confusion matrix
 array = [[172, 29], [41, 56]]
